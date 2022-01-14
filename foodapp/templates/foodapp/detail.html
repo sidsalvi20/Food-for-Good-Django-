@@ -1,0 +1,215 @@
+<{% load static %}>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Food Item Detail</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style3.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style> 
+  
+</style> 
+</head>
+<body>
+    <div >
+        <div class="image">
+        <img class="top" style="width:100%" src = "https://laurent.qodeinteractive.com/wp-content/uploads/2019/12/Booking-page-title-img.jpg">
+        <div class="centered">
+            <ul class="nav justify-content-center navfonts">
+                {% if user.is_authenticated %}  
+              <li class="nav-item">
+                  
+                  <a class="nav-link active" href="{% url 'login' %}" style="color: white;">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  
+                  <a class="nav-link active" href="#" style="color: white;">Home</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#"  style="color:white">Cart</a>
+                </li>
+              </ul>
+        Dish Details</div>
+    </div>
+    
+    
+    <div class="full container-fluid " style=" height:2500px;background-color: rgb(43, 41, 41)" id="1">
+    <br />
+    <br />
+        {% for food in all_foods %}
+        {% if food.item_name == name %}
+            <div class="container-fluid">
+                <img class="foodimg1" style="width:400px;height:300px;border-radius: 12px;
+                border-width: 1px;
+                float:left;
+                border-style: solid;
+                border-color: rgb(238, 175, 57);"  src="{{food.item_image}}">
+
+            <h1 style="font-size: 60px;
+  font-stretch: 7px;
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+letter-spacing: 4px;
+  
+  text-transform: uppercase;
+  color: #c9ab81;">{{food.item_name}}</h1>
+            <br />
+            <p class="desc1" style="font-size:50px;
+            
+           font-weight:200;
+          font-family: 'Great Vibes',cursive;
+            color: #c9ab81;
+            text-align: center;">{{food.item_desc}}</p>
+            <br />
+            <h1 class="price1" style="font-size:30px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            line-height: 2px;
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;
+            ">Price: ${{food.item_price}}</h1>
+           
+              
+        <br />
+        <br />
+        <br />
+        <br />
+            
+            <div style="background-color: rgb(43, 41, 41)">
+	<div style="width:100%;height:700px;align:center;position:relative;">
+   <div class="login-wrap" style="position:relative;height:200px;">
+   
+	<iframe style="position:relative;" width="1400" height="281" src="https://www.youtube.com/embed/lnRmIKkGCIA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="login-html" style="width:100%;
+	height:50%;
+  
+	position:relative;
+  top:20px;
+    background-color: rgb(43, 41, 41);
+	padding:30px 30px 0px 70px;
+	">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label style="font-size:30px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+              
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;
+            " for="tab-1" class="tab">Ingredients</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label style="font-size:30px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;
+            " for="tab-2" class="tab">Recipe</label>
+		
+    <div class="login-form">
+			<div class="sign-in-htm">
+				<p style="font-size:50px;
+            
+           font-weight:200;
+          font-family: 'Great Vibes',cursive;
+            color: white;
+            text-align: center;">{{food.item_ingredients}}</p>
+				<div class="hr"></div>
+							</div>
+			<div class="sign-up-htm">
+				<div class="group" style="color:white;font-size:20px;
+	font-family: 'Josefin Sans', sans-serif;
+	letter-spacing: 3px;
+
+	font-weight:200;
+	text-transform: uppercase;" >
+				
+					
+				<p style="color:white">Step 3
+Lightly oil the grill grate. Thread chicken onto skewers, and discard marinade. Grill until juices run clear, about 5 minutes on each side.
+
+ Step 4
+Melt butter in a large heavy skillet over medium heat. Saute garlic and jalapeno for 1 minute. Season with 2 teaspoons cumin, paprika, and 1 teaspoon salt. Stir in tomato sauce and cream. Simmer on low heat until sauce thickens, about 20 minutes. Add grilled chicken, and simmer for 10 minutes. Transfer to a serving platter, and garnish with fresh cilantro.</p>
+        <div class="hr"></div>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endif %} 
+            {% endfor %}
+
+            <br />
+            <br />
+<div style="background-color: rgb(43, 41, 41)">
+            <form action = "{% url 'add_comment' %}" method="POST">
+{% csrf_token %}
+{% load crispy_forms_tags %}
+<input type = "text" name = "ctext" class="form-control"  placeholder="Type A Comment">
+<div style="display:none">
+<input type = "text" name = "food" value="{{name}}" placeholder="Type A Comment">
+<input type = "text" name = "name" value="{{user.username}}" placeholder="Type A Comment">
+</div>
+<br />
+<input style="font-size:30px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;border-color:#c9ab81;" class="post btn btn-outline-warning" type = "submit" value = "Post">
+</form>
+<br />
+<div style="display:block;text-align:left;">
+<h1 style="font-size:50px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;border-color:#c9ab81;">Comments</h1>
+<div class="hr"></div>
+            {% for comment in all_comments %}
+            {% if comment.food.item_name == name %}
+        
+          <h1 class="font-weight-bold" style="color:#c9ab81">
+            {{ comment.name.username }}
+            </h1>
+          <h4 style="color:white">{{ comment.text }}</p>
+        <div class="hr"></div>
+        {% endif %}
+        {% endfor %}
+        </div>
+</div>            
+        </div>    
+      </div>
+      
+      
+        
+        </div>    
+</body>
+</html>
+<script>
+
+</script>
+
+
+
+            
+
+           

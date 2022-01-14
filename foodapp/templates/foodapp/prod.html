@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style> 
+    body { 
+        opacity: 0; 
+        transition: opacity 3s; 
+    } 
+</style> 
+</head>
+<body onload="document.body.style.opacity='1'">
+    <div >
+        <div class="image">
+        <img class="top" src = "https://laurent.qodeinteractive.com/wp-content/uploads/2019/12/Booking-page-title-img.jpg">
+        <div class="centered">
+            <ul class=" navfonts nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color:white">Cuisine</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#"  data-toggle="modal" data-target="#exampleModal" style="color:white">Cart
+                    
+                    <span id="cart">0</span></a>
+                </li>
+              </ul>
+            Our Dishes</div>
+    </div>
+    
+    
+    <div class="full container-fluid " id="1">
+    
+    <br />
+    <br />
+    <h1 class="cuisinehead">Indian Cuisine</h1>
+    <br />
+    <div class="row row-cols-md-3">
+        {% for food in all_foods %}
+        {% if food.item_cuisine == "Indian" %}
+        <div class="col mb-4">
+            <article class="card card--1">
+                {% if food.item_option == "Vegetarian" %}
+                <div class="card__info-hover">
+                
+                  <h4 class="desc">{{food.item_desc}}</h4>
+                  <br />
+                  
+                  <h3 class="text-success">${{food.item_price}}</h3>
+                  
+                  <svg class="card__like"  viewBox="0 0 24 24">
+                  <path fill="#000000" />
+              </svg>
+                    <div class="card__clock-info">
+                      <svg class="card__clock"  viewBox="0 0 24 24">
+                      </svg><span class="card__time" >15 min</span>
+                    </div>
+                  
+                </div>
+                {% else %}
+                <div class="card__info-hover">
+                
+                    <h4>{{food.item_desc}}</h4>
+                    <br />
+                    
+                    <h3 class="text-danger">${{food.item_price}}</h3>
+                    <svg class="card__like"  viewBox="0 0 24 24">
+                    <path fill="#000000" />
+                </svg>
+                      <div class="card__clock-info">
+                        <svg class="card__clock"  viewBox="0 0 24 24">
+                        </svg><span class="card__time" >15 min</span>
+                      </div>
+                    
+                  </div>
+                  {% endif %}
+                <img class="card__img" src="{{food.item_image}}">
+                <a href="#" class="card_link">
+                   <img class="card__img--hover" src="{{food.item_image}}">
+                 </a>
+                <div class="card__info">
+                  <span class="card__category"> Recipe</span>
+                  <span id="divpr{{food.item_id}}" class="divpr">
+                  <button class="btn btn-primary cart" id="pr{{food.item_id}}">Add To Cart</button>
+                </span>
+                  <h3 class="card__title" id="namepr{{food.item_id}}" >{{food.item_name}}</h3>
+                 
+              </article> 
+        </div>
+        <br />
+        
+        {% endif %}
+        {% endfor %}
+       
+
+      </div>
+      
+      <div class="container-fluid">
+      
+      
+    </div>
+    <br />
+    <div class="full container-fluid" id="1">
+        <h1 class="cuisinehead">Chinese Cuisine</h1>
+        <br />
+        <div class="row row-cols-1 row-cols-md-3">
+            {% for food in all_foods %}
+            {% if food.item_cuisine == "Chinese" %}
+            <div class="col mb-4">
+                <article class="card card--1">
+                    {% if food.item_option == "Vegetarian" %}
+                    <div class="card__info-hover">
+                    
+                      <h4>{{food.item_desc}}</h4>
+                      <br />
+                      
+                      <h3 class="text-success">${{food.item_price}}</h3>
+                      <svg class="card__like"  viewBox="0 0 24 24">
+                      <path fill="#000000" />
+                  </svg>
+                        <div class="card__clock-info">
+                          <svg class="card__clock"  viewBox="0 0 24 24">
+                          </svg><span class="card__time" >15 min</span>
+                        </div>
+                      
+                    </div>
+                    {% else %}
+                    <div class="card__info-hover">
+                    
+                        <h4>{{food.item_desc}}</h4>
+                        <br />
+                        
+                        <h3 class="text-danger">${{food.item_price}}</h3>
+                        <button class="btn btn-primary cart" id="pr{{food.item_id}}">Add To Cart</button>
+                        <svg class="card__like"  viewBox="0 0 24 24">
+                        <path fill="#000000" />
+                    </svg>
+                          <div class="card__clock-info">
+                            <svg class="card__clock"  viewBox="0 0 24 24">
+                            </svg><span class="card__time" >15 min</span>
+                          </div>
+                        
+                      </div>
+                      {% endif %}
+                    <img class="card__img" src="{{food.item_image}}">
+                    <a href="#" class="card_link">
+                       <img class="card__img--hover" src="{{food.item_image}}">
+                     </a>
+                    <div class="card__info">
+                      <span class="card__category"> Recipe</span>
+                      <span id="divpr{{food.item_id}}" class="divpr">
+                      <button class="btn btn-primary cart" id="pr{{food.item_id}}">Add To Cart</button>
+                    </span>
+                      <h3 class="card__title" id="namepr{{food.item_id}}">{{food.item_name}}</h3>
+                     
+                  </article> 
+            </div>
+            <br />
+            <br />
+            <br />
+            {% endif %}
+            {% endfor %}
+           
+    
+          </div>
+          <br />
+          <div class="container-fluid">
+          
+          
+        </div>
+        <div class="full container-fluid" id="1">
+            <h1 class="cuisinehead">Italian Cuisine</h1>
+            <br />
+            <div class="row row-cols-1 row-cols-md-3">
+                {% for food in all_foods %}
+                {% if food.item_cuisine == "Italian" %}
+                <div class="col mb-4">
+                    <article class="card card--1">
+                        {% if food.item_option == "Vegetarian" %}
+                        <div class="card__info-hover">
+                        
+                          <h4>{{food.item_desc}}</h4>
+                          <br />
+                          
+                          <h3 class="text-success">${{food.item_price}}</h3>
+                          
+                          <svg class="card__like"  viewBox="0 0 24 24">
+                          <path fill="#000000" />
+                      </svg>
+                            <div class="card__clock-info">
+                              <svg class="card__clock"  viewBox="0 0 24 24">
+                              </svg><span class="card__time" >15 min</span>
+                            </div>
+                          
+                        </div>
+                        {% else %}
+                        <div class="card__info-hover">
+                        
+                            <h4>{{food.item_desc}}</h4>
+                            <br />
+                            
+                            <h3 class="text-danger">${{food.item_price}}</h3>
+                          
+                            <svg class="card__like"  viewBox="0 0 24 24">
+                            <path fill="#000000" />
+                        </svg>
+                              <div class="card__clock-info">
+                                <svg class="card__clock"  viewBox="0 0 24 24">
+                                </svg><span class="card__time" >15 min</span>
+                              </div>
+                            
+                          </div>
+                          {% endif %}
+                        <img class="card__img" src="{{food.item_image}}">
+                        <a href="#" class="card_link">
+                           <img class="card__img--hover" src="{{food.item_image}}">
+                         </a>
+                        <div class="card__info">
+                          <span class="card__category"> Recipe</span>
+                          <span id="divpr{{food.item_id}}" class="divpr">
+                          <button class="btn btn-primary cart" id="pr{{food.item_id}}">Add To Cart</button>
+                          </span>
+                          <h3 class="card__title" id="namepr{{food.item_id}}" >{{food.item_name}}</h3>
+                         
+                      </article> 
+                </div>
+                <br />
+                <br />
+                <br />
+                {% endif %}
+                {% endfor %}
+               
+        
+              </div>
+              <br />
+              <div class="container-fluid">
+                
+              
+            </div>
+            <br />
+            <div class="container-fluid">
+              
+              <div class="row row-cols-1 row-cols-md-3">
+                {% for food in all_foods %}
+                {% if food.item_cuisine == "Indian" %}
+                <div class="col mb-4">
+                <div class="cardnew">
+                  <div class="poster"><img  src = "{{food.item_image}}"></div>
+                  <div class="details">
+                    <h2 class="card__title" id="namepr{{food.item_id}}">{{food.item_name}}<br><span>Juiced By Jimmy Heuangpangna</span></h2>
+              
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>5/5</span>
+                    </div>
+              
+                    <div  id="divpr{{food.item_id}}" class="divpr">
+                      <button class="btn btn-primary cart" id="pr{{food.item_id}}">Add To Cart</button>
+                    </div>
+              
+                    <div class="info">
+                      <p>Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet</p>
+                    </div>
+              
+                                     </div>
+                </div>
+                  </div>
+                <br />
+                <br />
+                <br />
+                {% endif %}
+                {% endfor %}
+               </div>
+        
+              
+            
+        <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id = "popcart">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>    
+</body>
+</html>
+
+{% block js %}
+<script>
+    console.log("Working");
+    if(localStorage.getItem('cart')==null){
+        var cart = {}
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+        updateCart(cart);
+    }
+    $('.cart').click(function(){
+        console.log('Clicked');
+        var idstr = this.id.toString();
+console.log(idstr);
+if(cart[idstr]!=undefined){
+  qty = cart[idstr][0] + 1;
+  
+  }
+else{
+  qty =  1;
+  name = document.getElementById('name'+idstr).innerText;
+  
+    cart[idstr]=[qty,name];
+}
+updateCart(cart);
+console.log(cart);
+localStorage.setItem('cart',JSON.stringify(cart));
+   
+    });
+    
+    
+updatePopover(cart);
+
+
+function updatePopover(cart){
+
+  console.log("We are inside update popover");
+  var popStr = '';
+  var i = 1;
+
+  popStr = popStr + "<h5>Cart</h5>";
+
+  for(var item in cart){
+    console.log(document.getElementById('name' + item).innnerHTML)
+    popStr = popStr + "<b>" + i + "</b>";
+    popStr = popStr + document.getElementById('name' + item).innerText + "Qty:" + cart[item][0] + '<br/>';
+    i=i+1;
+
+  }
+  document.getElementById('popcart').innerHTML=popStr;
+  
+}
+
+function updateCart(cart){
+  console.log(cart);
+  for(var item in cart){
+    document.getElementById('div'+item).innerHTML = "<button id='minus"+item+"'class='btn btn-primary minus'>-</button><span id='val" +item + "''>" + cart[item]
+     + "</span><button id='plus"+item+"' class='btn btn-primary plus'>+</button>";
+  
+  
+  }
+  localStorage.setItem('cart',JSON.stringify(cart));
+document.getElementById("cart").innerHTML = Object.keys(cart).length;  
+console.log(cart);
+updatePopover(cart);
+}
+//  if plus or minus clicked change the cart as well as the display value
+$('.divpr').on("click","button.minus",function(){
+
+console.log('minus clicked');
+a=this.id.slice(7, );
+cart['pr'+a][0] = cart['pr'+a][0] - 1;
+cart['pr'+a][0] = Math.max(0,cart['pr'+a][0]);
+document.getElementById('valpr'+a).innerHTML=cart['pr'+a][0];
+updateCart(cart)
+
+
+});
+$('.divpr').on("click","button.plus",function(){
+
+console.log('plus clicked');
+a=this.id.slice(6, );
+cart['pr'+a][0] = cart['pr' + a][0] + 1;
+document.getElementById('valpr'+a).innerHTML=cart['pr'+ a][0];
+updateCart(cart);
+
+});
+
+/*New Card*/
+
+
+</script>
+{% endblock %}

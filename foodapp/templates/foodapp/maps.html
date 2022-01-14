@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <style> 
+    body { 
+        opacity: 0; 
+        transition: opacity 3s; 
+    } 
+</style> 
+</head>
+<body style="height:100%;width:100%" onload="document.body.style.opacity='1'">
+<h1 class="text-success">Track Your Order</h1>
+<div id='map' style="height:60%"></div>
+<script src = "https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+<script>
+ var mapOptions = {
+        center:{lat:51.5,lng:-0.1},
+        zoom:7,
+        mapTypeId:
+        google.maps.MapTypeId.SATELLITE
+    };
+   var map = new 
+   google.maps.Map(document.getElementById('map'),mapOptions);
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+</html>
+
+{% block js %}
+<script>
+    console.log("Working");
+    
+    
+</script>
+{% endblock %}

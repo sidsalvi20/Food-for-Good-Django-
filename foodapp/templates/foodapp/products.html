@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>Lighter, Secondary Text</h1>
+  <p>The small element is used to create a lighter, secondary text in any heading:</p>
+
+<div class="container-fluid">
+
+    {% for food in all_foods %}
+
+  <section class="cards">
+    <article class="card card--1">
+      <div class="card__info-hover">
+      
+        <h4>{{food.item_desc}}</h4>
+        <br />
+        <h5 class="bg-secondary">$200</h5>
+        <svg class="card__like"  viewBox="0 0 24 24">
+        <path fill="#000000" />
+    </svg>
+          <div class="card__clock-info">
+            <svg class="card__clock"  viewBox="0 0 24 24">
+            </svg><span class="card__time" >15 min</span>
+          </div>
+        
+      </div>
+      <div class="card__img"></div>
+      <a href="#" class="card_link">
+         <div class="card__img--hover"></div>
+       </a>
+      <div class="card__info">
+        <span class="card__category"> Recipe</span>
+        <h3 class="card__title">{{food.item_name}}</h3>
+       <button class="btn btn-success">Buy Now</button>
+      </div>
+    </article>
+      
+      
+      
+      
+      
+      </section>
+      <br />
+      <br />
+      
+      {% endfor %}
+</div>
+
+</body>
+</html>

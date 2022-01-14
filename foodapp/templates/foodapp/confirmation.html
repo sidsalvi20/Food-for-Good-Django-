@@ -1,0 +1,59 @@
+<{% load static %}>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Confirmation Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style3.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style> 
+  
+</style> 
+</head>
+<body>
+    <div >
+        <div class="image">
+        <img class="top" style="width:100%" src = "https://laurent.qodeinteractive.com/wp-content/uploads/2019/12/Booking-page-title-img.jpg">
+        <div class="centered">
+            <ul class="nav justify-content-center navfonts">
+                {% if user.is_authenticated %}  
+              <li class="nav-item">
+                  
+                  <a class="nav-link active" href="{% url 'login' %}" style="color: white;">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  
+                  <a class="nav-link active" href="#" style="color: white;">Home</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#"  style="color:white">Cart</a>
+                </li>
+              </ul>
+        THANK YOU</div>
+    </div>
+    
+    
+    <div class="full container-fluid " style=" height:2500px;background-color: rgb(43, 41, 41)" id="1">
+    <br />
+    <br />
+    <p class="desc1" style="font-size:50px;
+            
+    font-weight:200;
+   font-family: 'Great Vibes',cursive;
+     color: #c9ab81;
+     text-align: center;">Thank you for placing the order. The ingredients of the food items will be delivered at your doorstep as soon as possible.</p>   
+</div>            
+        </div>    
+       
+</body>
+</html>

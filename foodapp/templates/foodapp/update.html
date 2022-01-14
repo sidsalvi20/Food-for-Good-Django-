@@ -1,0 +1,133 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style3.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style> 
+    body { 
+        opacity: 0; 
+        transition: opacity 3s; 
+		padding:0px;
+    } 
+</style> 
+</head>
+<body onload="document.body.style.opacity='1'" >
+<div class="image" style="position: relative;
+  text-align: center;
+  font-size:70px;
+  font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 6px;
+line-height: 4px;
+font-weight:200;
+text-transform: uppercase;
+  color: #c9ab81;">
+        <img class="top" src = "https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-crayfish-food-food-condiment-black-horizontal-banner-goodsseasoningblackhorizontal-bannerdelicious-image_50376.jpg">
+        <div class="centered">
+            <ul class=" navfonts nav justify-content-center" style="font-size:20px;
+  font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+line-height: 2px;
+font-weight:200;
+text-transform: uppercase;
+  color: #c9ab81;
+  text-align: center;
+  position: relative;
+  top:-120px;
+  transform: translate(90%, 90%);
+  ">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color:white">Cuisine</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#"  data-toggle="modal" data-target="#exampleModal" style="color:white">Cart
+                    
+                    <span id="cart">0</span></a>
+                </li>
+              </ul>
+            Login</div>
+    </div>
+	<div style="background-color: rgb(43, 41, 41);">
+	<div style="width:90%;height:1000px;align:center;position:relative;">
+   <div class="login-wrap" style="position:relative;top:40px;height:900px;
+   background:url('https://www.thewickednoodle.com/wp-content/uploads/2016/09/Spanish-Tapas-Dishes-and-Easy-Entertaining-2.jpg') ">
+	<div class="login-html" style="width:57%;
+	height:100%;
+	position:absolute;
+    background:rgb(73,66,66);
+	padding:90px 70px 50px 70px;
+	">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label style="font-size:30px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+              
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;
+            "  for="tab-1" class="tab">Update</label>
+		
+		<div class="login-form">
+			<div class="content-section" style="align-self: center">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <fieldset class="form-group" style="color:white;font-size:20px;
+  font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+
+font-weight:200;
+text-transform: uppercase;" >
+        <legend class="border-bottom mb-4">Update Details</legend>        
+        {{u_form|crispy}}
+        {{p_form|crispy}}
+    </fieldset>
+    <div class="form-group">
+        <button style="font-size:20px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;border-color:#c9ab81;" class="post btn btn-outline-warning" type = "submit">Update</button>   </div>
+    </form>
+   
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+        </small>
+    </div>
+</div>
+		</div>
+	</div>
+</div>
+</div>
+</div> 
+    
+</body>
+{% block js %}
+<script>
+    
+   
+    
+</script>
+{% endblock %}
+
+
+
+
+

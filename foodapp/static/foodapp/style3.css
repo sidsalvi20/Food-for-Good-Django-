@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Dancing+Script|Great+Vibes|Josefin+Sans|Kumar+One&display=swap');
+
+
+body{
+	
+	color:#6a6f8c;
+	background-color: rgb(43, 41, 41);
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+.image{
+
+  position: relative;
+  text-align: center;
+  font-size:70px;
+  font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 6px;
+line-height: 4px;
+font-weight:200;
+text-transform: uppercase;
+  color: #c9ab81;
+}
+.navfonts{
+  font-size:20px;
+  font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+line-height: 2px;
+font-weight:200;
+text-transform: uppercase;
+  color: #c9ab81;
+  text-align: center;
+  position: relative;
+  top:-120px;
+  transform: translate(90%, 90%);
+  
+  
+
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+ 
+}
+.top{
+
+  width:100%;
+  height:300px;
+  opacity: 4;
+}
+
+
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:auto;
+	
+	min-height:670px;
+	position:relative;
+	
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#c9ab81;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#1161ee;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+. login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
+}
+
+
+/*NEW FONTS*/
+
+
+.price1{
+
+    font-size:30px;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 3px;
+  line-height: 2px;
+  font-weight:200;
+  text-transform: uppercase;
+  color: #c9ab81;
+  text-align: center;
+
+}
+
+.desc1{
+
+  font-size:50px;
+  font-family: 'Josefin Sans', sans-serif;
+ font-weight:200;
+font-family: 'Great Vibes',cursive;
+  color: #c9ab81;
+  text-align: center;
+}
+
+
+/* NEW CARD 1*/
+
+/*
+-------------- Basic Reset Css ----------
+ */
+ * {
+  margin: 0px auto;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+/* -------- ----------- */
+
+/*NEW CARD 3*/
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+
+
+.cardnew {
+  
+  
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
+  width: 430px;
+  height: 400px;
+  
+}
+
+.cardnew .poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.cardnew .poster:before {
+  content: "";
+  position: absolute ;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,rgb(36, 39, 36) 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.cardnew:hover .poster:before {
+  bottom: 0;
+}
+
+.cardnew .poster img {
+  width: 100%;
+  
+  transition: 0.5s;
+}
+
+.cardnew:hover .poster img {
+  filter: blur(2px);
+  
+}
+
+.details {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  bottom: 65%;
+  left: 0;
+  box-sizing: border-box;
+  transition: 1s;
+  z-index: 2;
+}
+
+.cardnew:hover .details {
+  transform: translateY(-40%);
+}
+
+.details h2 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.details h2 span {
+  font-size: 14px;
+  color: #ff9800;
+}
+
+.rating {
+  position: relative;
+  padding: 5px, 0;
+}
+
+.rating .fa {
+  color: #f7f406;
+  margin-right: 2px;
+  font-size: 16px;
+}
+
+.rating span {
+  color: #fff;
+  padding: 0 5px;
+}
+
+.tags {
+  position: relative;
+  margin-top: 5px;
+}
+
+.tags span {
+  padding: 2px 5px;
+  margin-right: 2px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tags span.fantasy {
+  background: #7206f7;
+}
+
+.tags span.scifi {
+  background: #f70661;
+}
+
+.info {
+  color: #fff;
+}
+
+.info p {
+  margin: 15px, 0, 10px;
+}
+
+.star {
+  position: relative;
+}
+
+.star h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #f7f406
+}
+
+.star ul {
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+}
+
+.star ul li {
+  list-style: none;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 6px;
+  border: 2px solid #fff;
+}
+
+.star ul li img {
+  width: 100%;
+}

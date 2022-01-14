@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Checkout</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'foodapp/style.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style> 
+    body { 
+        opacity: 0; 
+        transition: opacity 3s;
+        height:100%; 
+    } 
+</style> 
+</head>
+<body onload="document.body.style.opacity='1'">
+    <div >
+        <div class="image">
+        <img class="top" style="width:1518px" src = "https://thumbs.dreamstime.com/b/basket-scattered-fruits-vegetables-black-wooden-table-flat-lay-152436337.jpg">
+        <div class="centered" style="color:white;font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+
+font-weight:200;
+text-transform: uppercase;">
+            <ul class=" navfonts nav justify-content-center">
+              {% if user.is_authenticated %}  
+              <li class="nav-item">
+                  
+                  <a class="nav-link active" href="{% url 'login' %}" style="color: white;">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  
+                  <a class="nav-link active" href="#" style="color: white;">Home</a>
+                </li>
+                {% endif %}
+               
+                <li class="nav-item">
+                  <a class="nav-link active" href="#" style="color: white;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#"  style="color:white">Cart</a>
+                </li>
+              </ul>
+            Your Cart</div>
+    </div>
+    
+    
+    <div class="full container-fluid " id="1">
+    
+    <br />
+    <br />
+    <h1 class="cuisinehead" style="font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+
+font-weight:200;
+text-transform: uppercase;">View Your Cart</h1>
+            <br />
+        
+        <div class="row">
+         <div class="col-8">
+            <table   class="table table-hover table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Delete Item</th>
+                  </tr>
+                </thead>
+                <tbody id="number">
+                  <tr >
+                    
+                  
+                  </tr>
+                  <tr>
+                    
+                    </tr>
+                  <tr>
+                    
+                    </tr>
+                </tbody>
+              </table>
+              <button style="font-size:20px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 3px;
+            
+            font-weight:200;
+            text-transform: uppercase;
+            color: #c9ab81;
+            text-align: center;border-color:#c9ab81;" class="post btn btn-outline-warning" type = "submit"><a href = "/shop/confirmation/">Confirm Order</a></button>
+              </div>
+             <div style="height:250px;border: 1px solid #c9ab81;" class="col-3"><br /><h3 style="font-size:50px;
+            
+           font-weight:200;
+          font-family: 'Great Vibes',cursive;
+            color: #c9ab81;
+            text-align: center;">Billing Details:</h3><div style="height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);" class="hr"></div><h4 style="color:white;font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+
+font-weight:200;
+text-transform: uppercase;" id="grand"></h4>
+              </div>
+              <div class="col-1">
+              
+        </div>
+
+        </div>
+        <br />
+        <div class="row">
+        <div class="col-8">
+        
+        </div>
+        <div style="height:250px;border: 1px solid #c9ab81;" class="col-3"><br /><h3 style="font-size:50px;
+            
+           font-weight:200;
+          font-family: 'Great Vibes',cursive;
+            color: #c9ab81;
+            text-align: center;">Delivery Details:</h3><div style="height:1px;
+	margin:20px 0 20px 0;
+	background:rgba(255,255,255,.2);" class="hr"></div><h4 style="color:white;font-family: 'Josefin Sans', sans-serif;
+letter-spacing: 3px;
+
+font-weight:200;
+text-transform: uppercase;" id="grand">{{user.profile.address}}</h4>
+
+<br />
+<br />
+              </div>
+        <div class="col-1">
+        </div>
+        </div>
+          <div id="add"></div>
+          <br />
+          <br />
+          <br />
+            </body>
+</html>
+
+{% block js %}
+<script>
+    console.log("Working");
+    if(localStorage.getItem('cart')==null){
+        var cart = {}
+       
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+        
+        
+    }
+    console.log(cart);
+    function Minus(id)
+    {
+      id = id.slice(1,);  
+      console.log('The id='+id+" was clicked");
+      var i = 1;
+      var sum = 0;
+      
+      for(item in cart){
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        sum = sum + (cart[item][0])*(cart[item][2]);
+      }
+      for(item in cart){
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        
+        if(name == id)
+        {
+          console.log('The match was found');
+          cart[item][0] = cart[item][0] - 1;
+cart[item][0] = Math.max(0,cart[item][0]);
+let total = (cart[item][0])*(cart[item][2]);
+sum = sum - cart[item][2];
+document.getElementById('d'+name).innerHTML=cart[item][0];
+document.getElementById('t'+name).innerHTML=total;
+document.getElementById('grand').innerHTML='Total = '+sum;
+localStorage.setItem('cart',JSON.stringify(cart));
+          console.log(cart);
+          break;  
+        }
+
+      }
+    }
+
+        function Plus(id)
+    {
+      id = id.slice(1,);  
+      console.log('The id='+id+" was clicked");
+      var i = 1;
+      let sum = 0;
+      
+      for(item in cart){
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        sum = sum + (cart[item][0])*(cart[item][2]);
+      }
+      for(item in cart){
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        
+        if(name == id)
+        {
+          console.log('The match was found');
+          cart[item][0] = cart[item][0] + 1;
+cart[item][0] = Math.max(0,cart[item][0]);
+let total = (cart[item][0])*(cart[item][2]);
+sum = sum + (1*cart[item][2]);
+document.getElementById('d'+name).innerHTML=cart[item][0];
+document.getElementById('t'+name).innerHTML=total;
+document.getElementById('grand').innerHTML='Total = '+sum;
+localStorage.setItem('cart',JSON.stringify(cart));
+          console.log(cart);
+          break;  
+        }
+
+      }
+    }
+    function Display()
+    {
+      var i=1;
+    var sum = 0;
+    mystr = '';
+    for(item in cart){
+        console.log(item);
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        let total = (cart[item][0])*(cart[item][2]);
+        
+        
+        
+
+
+        if(cart[item][0]>0)
+        {
+        sum  = sum + total;   
+        mystr = mystr + '<tr><th scope="row">'+i+'</th><td>'+name+'</td><td><button onclick="Minus(this.id)" class="btn btn-warning" id = "m'+name+'">-</button><p id="d'+name+'">'+qty+'</p><button onclick=Plus(this.id) class="btn btn-warning" id="p'+name+'">+</button></td><td>'+ price +'</td><td><p id="t'+name+'">'+total+'</p></td><td><button class="btn btn-outline-danger" onclick="Remove(this.id)" id = "r'+name+'">Delete</button></td></tr>'
+        document.getElementById('grand').innerHTML = "Total = "+sum;
+        i++;
+        }
+        document.getElementById('grand').innerHTML = "Total = "+sum;
+        
+    }
+document.getElementById('number').innerHTML = mystr;
+    }
+    function Remove(id)
+    {
+      id = id.slice(1,);  
+      console.log('The id='+id+" was clicked");
+      var i = 1;
+      let sum = 0;
+      let total = (cart[item][0])*(cart[item][2]);
+        sum = sum + total;
+
+      for(item in cart){
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        
+        if(name == id)
+        {
+          console.log('The match was found');
+         cart[item][0] = 0;
+         
+         localStorage.setItem('cart',JSON.stringify(cart));
+          Display();
+          console.log(cart);
+          break;  
+        }
+
+      }
+    }
+    
+    
+    var i=1;
+    var sum = 0;
+    var mystr = "";
+    for(item in cart){
+        console.log(item);
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let price = cart[item][2];
+        let total = (cart[item][0])*(cart[item][2]);
+        sum = sum + total;
+        
+        if(cart[item][0]>0)
+
+        {
+          mystr = mystr + '<tr><th scope="row">'+i+'</th><td>'+name+'</td><td><button onclick="Minus(this.id)" class="btn btn-warning" id = "m'+name+'">-</button><p id="d'+name+'">'+qty+'</p><button onclick=Plus(this.id) class="btn btn-warning" id="p'+name+'">+</button></td><td>'+ price +'</td><td><p id="t'+name+'">'+total+'</p></td><td><button class="btn btn-outline-danger" onclick="Remove(this.id)" id = "r'+name+'">Delete</button></td></tr>'
+         i++;        
+        }
+        
+        
+        
+    }
+    document.getElementById('number').innerHTML = mystr;
+document.getElementById('grand').innerHTML = "Total = "+sum;    
+var x = document.getElementById('number').rows[0].cells.length;
+document.getElementById('answer').innerHTML=x;
+</script>
+{% endblock %}
